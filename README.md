@@ -20,7 +20,7 @@
 - **직무**: 기획자 (Product/Strategy Planner)
 - **전화**: 010-0000-0000
 - **GitHub**: [@jjy716](https://github.com/jjy716)
-
+index.html
 ---
 
 ## 🎯 역량 & 전문분야
