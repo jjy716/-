@@ -18,7 +18,7 @@
 
 - **이름**: 정재영
 - **직무**: 기획자 (Product/Strategy Planner)
-- **전화**: 01088735158
+- **전화**: 010-0000-0000
 - **GitHub**: [@jjy716](https://github.com/jjy716)
 
 ---
