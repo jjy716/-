@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>정재영 - 기획자 포트폴리오</title>
+    <title>정재영 - 기획자/HRD 컨설턴트 포트폴리오</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%231e88e5'>📊</text></svg>">
     <style>
         * {
@@ -60,11 +60,9 @@
             color: #60a5fa;
         }
 
-        body.dark-mode .contact-info {
-            background: rgba(51, 65, 85, 0.5);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-        }
-
+        body.dark-mode .contact-info,
+        body.dark-mode .education-item,
+        body.dark-mode .certification-card,
         body.dark-mode .expertise-item,
         body.dark-mode .project-card {
             background: rgba(51, 65, 85, 0.5);
@@ -86,6 +84,7 @@
             z-index: 1000;
             box-shadow: var(--shadow-md);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            overflow-x: auto;
         }
 
         body.dark-mode nav {
@@ -103,6 +102,7 @@
             text-decoration: none;
             transition: var(--transition);
             letter-spacing: -0.5px;
+            white-space: nowrap;
         }
 
         .nav-logo:hover {
@@ -111,17 +111,19 @@
 
         .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 20px;
             align-items: center;
+            overflow-x: auto;
         }
 
         .nav-links a {
             color: var(--text-color);
             text-decoration: none;
             transition: var(--transition);
-            font-size: 0.95em;
+            font-size: 0.9em;
             font-weight: 500;
             position: relative;
+            white-space: nowrap;
         }
 
         .nav-links a::after {
@@ -198,6 +200,7 @@
             font-size: 0.9em;
             font-weight: 600;
             box-shadow: var(--shadow-sm);
+            white-space: nowrap;
         }
 
         .dark-mode-toggle:hover {
@@ -216,6 +219,7 @@
             font-weight: 600;
             transition: var(--transition);
             box-shadow: var(--shadow-sm);
+            white-space: nowrap;
         }
 
         .download-btn:hover {
@@ -253,12 +257,19 @@
         }
 
         header .job-title {
-            font-size: 1.4em;
+            font-size: 1.2em;
             color: var(--accent-color);
             font-weight: 700;
             margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        header .job-subtitle {
+            font-size: 1em;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 12px;
         }
 
         header .subtitle {
@@ -403,7 +414,6 @@
             background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(249, 115, 22, 0.05));
             padding: 28px;
             border-radius: 16px;
-            border-left: 5px solid var(--primary-color);
             border: 2px solid rgba(37, 99, 235, 0.2);
             transition: var(--transition);
         }
@@ -480,6 +490,111 @@
         .social-link:hover {
             transform: translateY(-6px) rotate(10deg);
             box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Education Section */
+        .education-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, var(--white), #f8fafc);
+            padding: 28px;
+            border-radius: 16px;
+            border-left: 5px solid var(--success-color);
+            border: 2px solid rgba(0, 0, 0, 0.02);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .education-item:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--success-color);
+        }
+
+        .education-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .education-item p {
+            color: #64748b;
+            margin: 6px 0;
+            font-size: 0.95em;
+        }
+
+        body.dark-mode .education-item p {
+            color: #cbd5e0;
+        }
+
+        /* Certification Section */
+        .certification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .certification-card {
+            background: linear-gradient(135deg, var(--white), #f8fafc);
+            padding: 32px;
+            border-radius: 16px;
+            border: 2px solid rgba(0, 0, 0, 0.02);
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+        }
+
+        .certification-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .certification-icon {
+            font-size: 3em;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .certification-card h3 {
+            color: var(--primary-color);
+            margin: 0 0 8px 0;
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+
+        .certification-card .level {
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 1em;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .certification-card p {
+            color: #64748b;
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        body.dark-mode .certification-card p {
+            color: #cbd5e0;
         }
 
         /* Skills Section */
@@ -816,7 +931,8 @@
             }
 
             .expertise-list,
-            .values {
+            .values,
+            .certification-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -856,6 +972,8 @@
         <a href="#" class="nav-logo">📊 JY</a>
         <div class="nav-links">
             <a href="#intro">소개</a>
+            <a href="#education">학력</a>
+            <a href="#certification">자격증</a>
             <a href="#contact">연락처</a>
             <a href="#skills">역량</a>
             <a href="#expertise">경험</a>
@@ -871,8 +989,9 @@
     <div class="container">
         <header>
             <h1>정재영</h1>
-            <p class="job-title">📈 기획자 (Planner)</p>
-            <p class="subtitle">Creating Ideas, Building Future</p>
+            <p class="job-title">📈 기획자 / HRD 컨설턴트</p>
+            <p class="job-subtitle">경영 컨설팅 & 인력자원개발 전문가</p>
+            <p class="subtitle">Creating Ideas, Building Future, Developing People</p>
             <button class="download-btn-header" onclick="downloadResume()">📥 포트폴리오 다운로드</button>
             <div class="social-links">
                 <a href="https://github.com/jjy716" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub 방문">🔗</a>
@@ -886,9 +1005,43 @@
             <section class="intro-section" id="intro">
                 <h2>📌 자기소개</h2>
                 <p>안녕하세요! 저는 정재영입니다.</p>
-                <p>서비스 전략 수립부터 실행까지 전 과정을 주도하는 기획자입니다.</p>
+                <p>서비스 전략 수립부터 실행까지 전 과정을 주도하는 기획자이자 HRD 컨설턴트입니다.</p>
+                <p>경영 컨설팅을 통해 조직의 비즈니스 성과를 극대화하고, 인력자원개발(HRD)을 통해 인재를 육성합니다.</p>
                 <p>사용자의 니즈를 분석하고, 데이터 기반의 전략을 세워 비즈니스 성과를 만들어냅니다.</p>
-                <p>항상 사용자 중심의 사고로 서비스를 기획하며, 아이디어를 현실로 만들기 위해 노력합니다.</p>
+                <p>항상 사용자 중심의 사고로 서비스를 기획하며, 조직과 인재의 성장을 위해 노력합니다.</p>
+            </section>
+
+            <!-- Education Section -->
+            <section class="education-section" id="education">
+                <h2>🎓 학력</h2>
+                <div class="education-list">
+                    <div class="education-item">
+                        <h3>경희대학교</h3>
+                        <p><strong>📚 학위:</strong> 학사 졸업</p>
+                        <p style="margin-top: 12px; color: #888; font-size: 0.9em;">
+                            경희대학교에서 폭넓은 학문을 습득하고, 기획과 경영에 필요한 기초를 다졌습니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certification Section -->
+            <section class="certification-section" id="certification">
+                <h2>🏆 자격증</h2>
+                <div class="certification-grid">
+                    <div class="certification-card">
+                        <span class="certification-icon">📜</span>
+                        <h3>마케팅기획전문가</h3>
+                        <p class="level">1급</p>
+                        <p>마케팅 전략 및 기획에 대한 전문 역량 보유</p>
+                    </div>
+                    <div class="certification-card">
+                        <span class="certification-icon">🏅</span>
+                        <h3>HRD전문가</h3>
+                        <p class="level">1급</p>
+                        <p>인력자원개발 및 조직 성과 관리 전문 역량 보유</p>
+                    </div>
+                </div>
             </section>
             
             <!-- Contact Section -->
@@ -896,7 +1049,8 @@
                 <h2>📞 연락처</h2>
                 <div class="contact-info">
                     <p><strong>👤 이름:</strong> 정재영</p>
-                    <p><strong>💼 직무:</strong> 기획자 (Product/Strategy Planner)</p>
+                    <p><strong>🎓 학력:</strong> 경희대학교 졸업</p>
+                    <p><strong>💼 직무:</strong> 기획자 / HRD 컨설턴트 (경영 컨설팅)</p>
                     <p><strong>📱 전화:</strong> <a href="tel:01088735158" onclick="handleCall()">01088735158</a></p>
                     <p><strong>✉️ 이메일:</strong> <a href="mailto:jjy716@khu.ac.kr" onclick="handleEmail()">jjy716@khu.ac.kr</a></p>
                     <p><strong>🐙 GitHub:</strong> <a href="https://github.com/jjy716" target="_blank" rel="noopener noreferrer" onclick="handleGithub()">@jjy716</a></p>
@@ -916,6 +1070,8 @@
                     <button class="filter-btn" onclick="filterSkills('planning')">기획</button>
                     <button class="filter-btn" onclick="filterSkills('analysis')">분석</button>
                     <button class="filter-btn" onclick="filterSkills('management')">관리</button>
+                    <button class="filter-btn" onclick="filterSkills('consulting')">컨설팅</button>
+                    <button class="filter-btn" onclick="filterSkills('hrd')">HRD</button>
                 </div>
                 <div class="skills" id="skillsList">
                     <span class="skill" data-category="planning">📋 서비스 기획</span>
@@ -924,6 +1080,10 @@
                     <span class="skill" data-category="analysis">🔍 시장 분석</span>
                     <span class="skill" data-category="management">⚙️ 프로젝트 관리</span>
                     <span class="skill" data-category="planning">🎨 UX/UI 기획</span>
+                    <span class="skill" data-category="consulting">💼 경영 컨설팅</span>
+                    <span class="skill" data-category="hrd">👨‍🏫 인력자원개발(HRD)</span>
+                    <span class="skill" data-category="consulting">📈 비즈니스 전략</span>
+                    <span class="skill" data-category="hrd">🎓 조직 교육 및 훈련</span>
                 </div>
             </section>
             
@@ -947,6 +1107,14 @@
                         <h3>🤝 팀 협업 리더십</h3>
                         <p>개발팀, 디자인팀, 마케팅팀 등 크로스펑셔널 협업을 통한 효율적 프로젝트 추진</p>
                     </div>
+                    <div class="expertise-item">
+                        <h3>💼 경영 컨설팅</h3>
+                        <p>조직의 비즈니스 목표 달성을 위한 전략 수립, 프로세스 최적화, 성과 관리</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h3>👨‍🏫 인력자원개발(HRD)</h3>
+                        <p>조직 내 인재 육성, 교육 프로그램 설계, 역량 개발, 조직 성과 향상</p>
+                    </div>
                 </div>
             </section>
             
@@ -961,7 +1129,7 @@
                 </div>
                 <div class="project-card" data-project="portfolio">
                     <h3>🎯 개인 포트폴리오 페이지</h3>
-                    <p>나의 커리어와 역량을 소개하는 기획자 포트폴리오 페이지</p>
+                    <p>나의 커리어와 역량을 소개하는 기획자/HRD 컨설턴트 포트폴리오 페이지</p>
                     <p class="role"><strong>역할:</strong> 페이지 기획, 정보 아키텍처 설계, 사용자 경험 기획</p>
                     <p style="margin-top: 12px; color: #888; font-size: 0.9em;">
                         ✨ 한 개의 HTML 파일로 완성된 반응형 웹페이지입니다. 
@@ -977,7 +1145,7 @@
                 <div class="values">
                     <div class="value-item">
                         <h4>👥 사용자 중심</h4>
-                        <p>항상 사용자의 관점에서 생각하고 최고의 경험을 제공합니다</p>
+                        <p>항상 사용자와 조직 구성원의 관점에서 생각하고 최고의 경험을 제공합니다</p>
                     </div>
                     <div class="value-item">
                         <h4>📈 데이터 기반</h4>
@@ -986,6 +1154,10 @@
                     <div class="value-item">
                         <h4>⚡ 실행 중심</h4>
                         <p>아이디어를 빠르게 현실로 만들고 지속적으로 개선해갑니다</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>🌱 성장 지향</h4>
+                        <p>개인의 성장과 조직의 발전을 함께 추구하며 함께 성장합니다</p>
                     </div>
                 </div>
             </section>
@@ -1015,17 +1187,14 @@
 
         // Contact Handlers
         function handleCall() {
-            // tel: 링크는 기본적으로 작동
             console.log('전화 걸기: 01088735158');
         }
 
         function handleEmail() {
-            // mailto: 링크는 기본적으로 작동
             console.log('이메일 보내기: jjy716@khu.ac.kr');
         }
 
         function handleGithub() {
-            // 새 탭에서 열기
             window.open('https://github.com/jjy716', '_blank');
         }
 
@@ -1134,18 +1303,20 @@
         function getProfileInfo() {
             return {
                 name: '정재영',
-                jobTitle: '기획자',
+                jobTitle: '기획자 / HRD 컨설턴트',
                 phone: '01088735158',
                 email: 'jjy716@khu.ac.kr',
                 github: 'jjy716',
-                skills: ['서비스 기획', '데이터 분석', '사용자 리서치', '시장 분석', '프로젝트 관리', 'UX/UI 기획'],
-                bio: '서비스 전략 수립부터 실행까지 전 과정을 주도하는 기획자입니다.'
+                education: '경희대학교',
+                certifications: ['마케팅기획전문가 1급', 'HRD전문가 1급'],
+                skills: ['서비스 기획', '데이터 분석', '경영 컨설팅', 'HRD', '프로젝트 관리', 'UX/UI 기획'],
+                bio: '서비스 전략 수립부터 실행까지 전 과정을 주도하고, 인력자원개발을 통해 조직과 인재의 성장을 이끕니다.'
             };
         }
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🎉 고도화된 기획자 포트폴리오 페이지가 로드되었습니다!');
+            console.log('🎉 고도화된 기획자/HRD 컨설턴트 포트폴리오 페이지가 로드되었습니다!');
             console.log('📊 프로필:', getProfileInfo());
         });
     </script>
