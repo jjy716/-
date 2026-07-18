@@ -18,6 +18,8 @@
             --text-color: #333;
             --light-bg: #f5f5f5;
             --white: #ffffff;
+            --dark-bg: #1a1a1a;
+            --dark-text: #e0e0e0;
         }
 
         body {
@@ -26,11 +28,129 @@
             color: var(--text-color);
             line-height: 1.6;
             min-height: 100vh;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background: linear-gradient(135deg, #0d1b2a 0%, #16213e 100%);
+            color: var(--dark-text);
+        }
+
+        body.dark-mode section {
+            background: #1e293b;
+            color: var(--dark-text);
+        }
+
+        body.dark-mode header {
+            background: #2d3748;
+        }
+
+        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4 {
+            color: #64b5f6;
+        }
+
+        body.dark-mode .contact-info {
+            background: #374151;
+        }
+
+        body.dark-mode .expertise-item,
+        body.dark-mode .project-card {
+            background: #374151;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode nav {
+            background: rgba(30, 41, 59, 0.95);
+        }
+
+        .nav-logo {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        body.dark-mode .nav-links a {
+            color: var(--dark-text);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            padding: 8px 15px;
+            border: 2px solid var(--primary-color);
+            border-radius: 20px;
+            width: 150px;
+            transition: width 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(30, 136, 229, 0.3);
+        }
+
+        body.dark-mode .search-box input {
+            background: #374151;
+            color: var(--dark-text);
+            border-color: #64b5f6;
+        }
+
+        .dark-mode-toggle {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.05);
         }
 
         .container {
             max-width: 900px;
-            margin: 0 auto;
+            margin: 80px auto 0;
             padding: 20px;
         }
 
@@ -62,6 +182,25 @@
             font-size: 1.1em;
             color: #888;
             font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(30, 136, 229, 0.4);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 136, 229, 0.6);
         }
 
         /* Main Sections */
@@ -77,6 +216,7 @@
             padding: 40px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             animation: fadeIn 0.8s ease-out;
+            scroll-margin-top: 100px;
         }
 
         section h2 {
@@ -101,6 +241,46 @@
             color: #555;
         }
 
+        body.dark-mode .intro-section p {
+            color: #cbd5e0;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: 2px solid var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        body.dark-mode .filter-btn {
+            background: #374151;
+            color: #64b5f6;
+            border-color: #64b5f6;
+        }
+
+        body.dark-mode .filter-btn.active {
+            background: #64b5f6;
+            color: #1e293b;
+        }
+
         /* Contact Section */
         .contact-info {
             background: var(--light-bg);
@@ -122,6 +302,31 @@
 
         .contact-info a:hover {
             text-decoration: underline;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(30, 136, 229, 0.4);
         }
 
         /* Skills Section */
@@ -178,6 +383,10 @@
             font-size: 0.95em;
         }
 
+        body.dark-mode .expertise-item p {
+            color: #cbd5e0;
+        }
+
         /* Projects Section */
         .project-card {
             background: var(--light-bg);
@@ -202,6 +411,10 @@
             color: #666;
             font-size: 0.95em;
             margin-bottom: 10px;
+        }
+
+        body.dark-mode .project-card p {
+            color: #cbd5e0;
         }
 
         .project-card .role {
@@ -271,8 +484,107 @@
             }
         }
 
+        @keyframes scrollReveal {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(30, 136, 229, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            box-shadow: 0 4px 15px rgba(30, 136, 229, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 136, 229, 0.6);
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+        }
+
+        /* Print Styles */
+        @media print {
+            nav, .scroll-to-top, .search-box, .dark-mode-toggle {
+                display: none;
+            }
+
+            body {
+                background: white;
+            }
+
+            section {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+            .download-btn {
+                display: none;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 0.8em;
+            }
+
+            .search-box input {
+                width: 120px;
+            }
+
+            .search-box input:focus {
+                width: 150px;
+            }
+
+            .container {
+                margin-top: 120px;
+            }
+
             header {
                 padding: 40px 20px;
             }
@@ -302,20 +614,51 @@
             .values {
                 grid-template-columns: 1fr;
             }
+
+            .scroll-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+                bottom: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="nav-logo">JY Portfolio</a>
+        <div class="nav-links">
+            <a href="#intro">소개</a>
+            <a href="#contact">연락처</a>
+            <a href="#skills">역량</a>
+            <a href="#expertise">경험</a>
+            <a href="#projects">프로젝트</a>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="검색...">
+            </div>
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 다크모드</button>
+            <button class="download-btn" onclick="downloadResume()">📥 다운로드</button>
+        </div>
+    </nav>
+
     <div class="container">
         <header>
             <h1>정재영</h1>
             <p class="job-title">기획자 (Planner)</p>
             <p class="subtitle">Creating Ideas, Building Future</p>
+            <button class="download-btn" onclick="downloadResume()">📥 포트폴리오 다운로드</button>
+            <div class="social-links">
+                <a href="https://github.com/jjy716" target="_blank" class="social-link" title="GitHub">🔗</a>
+                <a href="mailto:jjy716@khu.ac.kr" class="social-link" title="이메일">✉️</a>
+                <a href="tel:01088735158" class="social-link" title="전화">📞</a>
+            </div>
         </header>
         
         <main>
             <!-- Intro Section -->
-            <section class="intro-section">
+            <section class="intro-section" id="intro">
                 <h2>📌 자기소개</h2>
                 <p>안녕하세요! 저는 정재영입니다.</p>
                 <p>서비스 전략 수립부터 실행까지 전 과정을 주도하는 기획자입니다.</p>
@@ -324,31 +667,43 @@
             </section>
             
             <!-- Contact Section -->
-            <section class="contact-section">
+            <section class="contact-section" id="contact">
                 <h2>📞 연락처</h2>
                 <div class="contact-info">
                     <p><strong>이름:</strong> 정재영</p>
                     <p><strong>직무:</strong> 기획자 (Product/Strategy Planner)</p>
-                    <p><strong>전화:</strong> 01088735158</p>
+                    <p><strong>전화:</strong> <a href="tel:01088735158">01088735158</a></p>
+                    <p><strong>이메일:</strong> <a href="mailto:jjy716@khu.ac.kr">jjy716@khu.ac.kr</a></p>
                     <p><strong>GitHub:</strong> <a href="https://github.com/jjy716" target="_blank">@jjy716</a></p>
+                    <div class="social-links">
+                        <a href="https://github.com/jjy716" target="_blank" class="social-link" title="GitHub">🔗</a>
+                        <a href="mailto:jjy716@khu.ac.kr" class="social-link" title="이메일">✉️</a>
+                        <a href="tel:01088735158" class="social-link" title="전화">📞</a>
+                    </div>
                 </div>
             </section>
             
             <!-- Skills Section -->
-            <section class="skills-section">
+            <section class="skills-section" id="skills">
                 <h2>🎯 역량 & 전문분야</h2>
-                <div class="skills">
-                    <span class="skill">서비스 기획</span>
-                    <span class="skill">데이터 분석</span>
-                    <span class="skill">사용자 리서치</span>
-                    <span class="skill">시장 분석</span>
-                    <span class="skill">프로젝트 관리</span>
-                    <span class="skill">UX/UI 기획</span>
+                <div class="filter-section">
+                    <button class="filter-btn active" onclick="filterSkills('all')">전체</button>
+                    <button class="filter-btn" onclick="filterSkills('planning')">기획</button>
+                    <button class="filter-btn" onclick="filterSkills('analysis')">분석</button>
+                    <button class="filter-btn" onclick="filterSkills('management')">관리</button>
+                </div>
+                <div class="skills" id="skillsList">
+                    <span class="skill" data-category="planning">서비스 기획</span>
+                    <span class="skill" data-category="analysis">데이터 분석</span>
+                    <span class="skill" data-category="analysis">사용자 리서치</span>
+                    <span class="skill" data-category="analysis">시장 분석</span>
+                    <span class="skill" data-category="management">프로젝트 관리</span>
+                    <span class="skill" data-category="planning">UX/UI 기획</span>
                 </div>
             </section>
             
             <!-- Expertise Section -->
-            <section class="expertise-section">
+            <section class="expertise-section" id="expertise">
                 <h2>💼 주요 경험분야</h2>
                 <div class="expertise-list">
                     <div class="expertise-item">
@@ -371,20 +726,26 @@
             </section>
             
             <!-- Projects Section -->
-            <section class="projects-section">
+            <section class="projects-section" id="projects">
                 <h2>🚀 주요 프로젝트</h2>
-                <div class="project-card">
+                <div class="filter-section">
+                    <button class="filter-btn active" onclick="filterProjects('all')">전체</button>
+                    <button class="filter-btn" onclick="filterProjects('web')">웹</button>
+                    <button class="filter-btn" onclick="filterProjects('mobile')">모바일</button>
+                    <button class="filter-btn" onclick="filterProjects('portfolio')">포트폴리오</button>
+                </div>
+                <div class="project-card" data-project="portfolio">
                     <h3>개인 포트폴리오 페이지</h3>
                     <p>나의 커리어와 역량을 소개하는 기획자 포트폴리오 페이지</p>
                     <p class="role"><strong>역할:</strong> 페이지 기획, 정보 아키텍처 설계, 사용자 경험 기획</p>
                     <p style="margin-top: 15px; color: #888; font-size: 0.9em;">
-                        한 개의 HTML 파일로 완성된 반응형 웹페이지입니다. 모든 스타일과 기능이 포함되어 있습니다.
+                        한 개의 HTML 파일로 완성된 반응형 웹페이지입니다. 네비게이션, 검색, 다크모드, 필터링, 인쇄 기능이 포함되어 있습니다.
                     </p>
                 </div>
             </section>
             
             <!-- Values Section -->
-            <section class="values-section">
+            <section class="values-section" id="values">
                 <h2>🎨 기획 철학</h2>
                 <div class="values">
                     <div class="value-item">
@@ -408,44 +769,141 @@
         </footer>
     </div>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+
     <script>
-        // 페이지 로드 시 애니메이션
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('기획자 포트폴리오 페이지가 로드되었습니다!');
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        // Load Dark Mode Preference
+        window.addEventListener('load', function() {
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+            }
+        });
+
+        // Search Functionality
+        document.getElementById('searchInput').addEventListener('keyup', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const sections = document.querySelectorAll('section');
             
-            // 스킬 태그에 애니메이션 추가
-            const skills = document.querySelectorAll('.skill');
-            skills.forEach((skill, index) => {
-                skill.style.animationDelay = `${index * 0.1}s`;
-                skill.style.animation = 'fadeIn 0.6s ease-out forwards';
+            sections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                section.style.display = text.includes(searchTerm) ? 'block' : 'none';
             });
         });
 
-        // 프로필 정보
+        // Filter Skills
+        function filterSkills(category) {
+            const skills = document.querySelectorAll('#skillsList .skill');
+            const buttons = document.querySelectorAll('.skills-section .filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            skills.forEach(skill => {
+                if (category === 'all' || skill.dataset.category === category) {
+                    skill.style.display = 'inline-block';
+                    skill.style.animation = 'fadeIn 0.3s ease-out';
+                } else {
+                    skill.style.display = 'none';
+                }
+            });
+        }
+
+        // Filter Projects
+        function filterProjects(type) {
+            const projects = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.projects-section .filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            projects.forEach(project => {
+                if (type === 'all' || project.dataset.project === type) {
+                    project.style.display = 'block';
+                    project.style.animation = 'fadeIn 0.3s ease-out';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        }
+
+        // Download Resume (Print to PDF)
+        function downloadResume() {
+            window.print();
+        }
+
+        // Scroll to Top
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'scrollReveal 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Profile Information
         function getProfileInfo() {
             return {
                 name: '정재영',
                 jobTitle: '기획자',
                 phone: '01088735158',
+                email: 'jjy716@khu.ac.kr',
                 github: 'jjy716',
                 skills: ['서비스 기획', '데이터 분석', '사용자 리서치', '시장 분석', '프로젝트 관리', 'UX/UI 기획'],
                 bio: '서비스 전략 수립부터 실행까지 전 과정을 주도하는 기획자입니다.'
             };
         }
 
-        // 헤더 인터랙티브 효과
-        window.addEventListener('load', function() {
-            const header = document.querySelector('header');
-            if (header) {
-                header.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.02)';
-                    this.style.transition = 'transform 0.3s ease';
-                });
-                
-                header.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1)';
-                });
-            }
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('고도화된 기획자 포트폴리오 페이지가 로드되었습니다!');
+            console.log('프로필:', getProfileInfo());
         });
     </script>
 </body>
